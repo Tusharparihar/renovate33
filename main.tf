@@ -1,7 +1,12 @@
-provider "azurerm" {
-  version = ">= 3.80.0, < 4.0.0"
-}
-
-provider "random" {
-  version = ">= 3.5.0, < 4.0.0"
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.80"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.7.0"
+    }
+  }
 }
