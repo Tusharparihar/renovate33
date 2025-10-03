@@ -1,23 +1,13 @@
 {
   "extends": ["config:base"],
   "terraform": {
-    "enabled": true,
-    "fileMatch": ["^.*\\.tf$"],
-    "ignoreUnstable": true
+    "enabled": true
   },
-  "branchConcurrentLimit": 10,
-  "prHourlyLimit": 5,
   "packageRules": [
     {
-      "matchPackageNames": ["hashicorp/terraform"],
-      "groupName": "terraform core updates",
-      "rangeStrategy": "widen"
-    },
-    {
-      "matchPackagePatterns": ["^hashicorp/azurerm$", "^hashicorp/random$", "^hashicorp/null$"],
-      "groupName": "terraform provider updates",
-      "rangeStrategy": "pin",
-      "versioning": "semver"
+      "matchPackagePatterns": ["^azurerm$", "^random$"],
+      "rangeStrategy": "bump",   // bump patch one step at a time
+      "automerge": false          // optional, keep false if you want PR review
     }
   ]
 }
