@@ -6,7 +6,7 @@ terraform {
     }
     random = {
       source  = "hashicorp/random"
-      version = "3.7.0" # already pinned
+      version = "3.7.2" # already pinned
     }
   }
 }
